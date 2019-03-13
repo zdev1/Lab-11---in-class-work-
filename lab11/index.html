@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 11: The Login Popup Form</title>
+    <link href="css/styles.css" rel="stylesheet">
+    <script>
+    window.addEventListener("load", function() {
+        "use strict";
+        var width = 640;
+        var height = 480;
+        window.resizeTo(width, height);
+        window.moveTo(
+            (window.screen.width - width) / 2,
+            (window.screen.height - height) / 2);
+    
+        var access  = window.document.getElementById("login");
+        access.addEventListener("click", function () {
+            var username = window.document.getElementById("username").value;
+            var password = window.document.getElementById("password").value;
+            var output = 
+                window.opener.document.getElementById("logindetails");
+            output.innerHTML = "<br><br>Username: " + username + "<br>Password: " + password;
+            window.close();
+        });
+    });
+    </script>
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <main>
+        <h1>Account Access</h1>
+        <button id="login">Log In</button>
+        <output id="logindetails"></output>
+    </main>
+</body>
+</html>
